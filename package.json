@@ -1,0 +1,20 @@
+{
+  "name": "aacc-membership-log",
+  "version": "1.0.0",
+  "description": "Automatic updater for the AACC Membership Log",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudydaiyz/aacc-membership-log.git"
+  },
+  "author": "Kylan Duncan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cloudydaiyz/aacc-membership-log/issues"
+  },
+  "homepage": "https://github.com/cloudydaiyz/aacc-membership-log#readme"
+}
