@@ -39,7 +39,7 @@ function init() {
     });
 }
 
-// Update the AACC Membership Log (running everything)
+// Update the AACC Membership Log
 async function updateLog(auth) {
     const sheets = google.sheets({version: 'v4', auth});
     extract.initialize(sheets, auth);
@@ -65,16 +65,12 @@ async function updateLog(auth) {
     console.log("result: ");
     console.log(members);
 
-    // Create the membership point matrix from the events in the events log and the
-    // extracted membership information
-    console.log();
-    update.createMembershipMatrix(members, event_values);
-
     // Update the membership log with the correct membership points of each member
     console.log();
-    update.updateMembershipLog(members, numExisting);
+    update.updateMembershipLog(members, numExisting, event_values);
 }
 
+// Clear the membership log
 async function clearLog(auth) {
     const sheets = google.sheets({version: 'v4', auth});
     update.initialize(sheets, auth);

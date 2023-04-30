@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/cloudydaiyz/aacc-membership-log/issues"
   },
-  "homepage": "https://github.com/cloudydaiyz/aacc-membership-log#readme"
+  "homepage": "https://github.com/cloudydaiyz/aacc-membership-log#readme",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "googleapis": "^105.0.0"
+  }
 }

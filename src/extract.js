@@ -1,12 +1,6 @@
 const {google} = require('googleapis');
 const constants = require('./constants');
 
-// Cells to use
-const membership_point_cells = "Membership!B4:I10";
-
-const event_log_cells = "Membership!N4:O4";
-const membership_log_cells = "Membership!S4:X4";
-
 methods = {
 
     sheets: null,
@@ -58,7 +52,7 @@ methods = {
                     points: 0,
                     attendance: []
                 };
-                members[row[2]] = member;
+                members[row[2].toLowerCase()] = member;
                 numExisting++;
             });
         
@@ -87,9 +81,10 @@ methods = {
             let result = await this.readFromSpreadsheet(eventRow[2], constants.sign_in_cells,
                 (row) => {
                     let member;
-                    if(row[2] in members) {
+                    let eid = row[2].toLowerCase();
+                    if(eid in members) {
                         // A member that we've already found
-                        member = members[row[2]]
+                        member = members[eid]
                     } else {
                         // A new member that we've haven't seen before -- add them to
                         // the dictionary
@@ -101,7 +96,7 @@ methods = {
                             points: 0,
                             attendance: []
                         };
-                        members[row[2]] = member;
+                        members[eid] = member;
                     }
                     member.attendance.push(eventRow[0]);
                     member.points += event_values[eventRow[0]];
